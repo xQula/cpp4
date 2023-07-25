@@ -20,11 +20,11 @@ private slots:
 
     void on_pb_bar_valueChanged(int value);
 
-    void on_psh_setup_toggled(bool checked);
+    void on_psh_toogle_clicked();
+
+    void on_psh_toogle_toggled(bool checked);
 
 private:
     Ui::MainWindow *ui;
-    int count;
-    bool flag_click;
 };
 #endif // MAINWINDOW_H
