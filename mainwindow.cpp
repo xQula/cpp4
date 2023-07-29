@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->rb_setup2->setText("20%");
     ui->psh_setup->setText("Setup");
     ui->rb_setup1->setChecked(true);
-    ui->psh_toogle->setText("Touch");
+    ui->psh_setup->setCheckable(true);
 }
 
 MainWindow::~MainWindow()
@@ -25,35 +25,27 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pb_bar_valueChanged(int value)
+void MainWindow::on_pb_bar_update(int val)
 {
     if(ui->pb_bar->value() == 10){
         ui->pb_bar->setValue(0);
-    }else if((value + ui->pb_bar->value()) > 10){
+    }else if((val + ui->pb_bar->value()) > 10){
         ui->pb_bar->setValue(10);
     }else{
-        ui->pb_bar->setValue((value + ui->pb_bar->value()));
-    }
-}
-
-void MainWindow::on_psh_setup_clicked()
-{
-    if(ui->rb_setup1->isChecked() == true){
-        on_pb_bar_valueChanged(1);
-    }else{
-        on_pb_bar_valueChanged(2);
+        ui->pb_bar->setValue((val + ui->pb_bar->value()));
     }
 }
 
 
-void MainWindow::on_psh_toogle_clicked()
+void MainWindow::on_psh_setup_toggled(bool checked)
 {
-    on_psh_toogle_toggled(true);
-}
+    if(checked){
+        if(ui->rb_setup1->isChecked() == true){
+            on_pb_bar_update(1);
+        }else{
+            on_pb_bar_update(2);
+        }
+    }
 
-
-void MainWindow::on_psh_toogle_toggled(bool checked)
-{
-    on_pb_bar_valueChanged(5);
 }
 

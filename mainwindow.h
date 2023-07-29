@@ -16,15 +16,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_psh_setup_clicked();
 
-    void on_pb_bar_valueChanged(int value);
-
-    void on_psh_toogle_clicked();
-
-    void on_psh_toogle_toggled(bool checked);
+    void on_psh_setup_toggled(bool checked);
 
 private:
+    void on_pb_bar_update(int val);
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
