@@ -45,6 +45,8 @@ void MainWindow::on_psh_setup_toggled(bool checked)
         }else{
             on_pb_bar_update(2);
         }
+    }else{
+        on_pb_bar_update(1);
     }
 
 }
